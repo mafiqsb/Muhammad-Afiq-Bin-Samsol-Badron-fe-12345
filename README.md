@@ -1,10 +1,17 @@
-This is practice assessment build by Muhammad Afiq bin Samsol Badron for RF Laiyon Interactive Sdn Bhd for position Frontend Developer.
+This practice assessment was built by Muhammad Afiq Bin Samsol Badron for RF Laiyon Interactive Sdn Bhd for the position of Frontend Developer.
 
-I have also done for all the requirement needed :-
+I have also done for all the requirements needed :-
 
-• All screens in the design done.
-• Integrated with API.
-• Have at least two usages case of either React Context / React Redux.
+1. **All screens in the design done.**
+2. **Integrated with API.**
+3. **Have at least two usages case of either React Context / React Redux.**
+
+**All of this practice assessment using React.js (Next.js) and Chakra UI as requested.**
+
+Extra :-
+
+1. Make responsive for every size of the screen,
+2. Make navigation to another page.
 
 Here is the instruction:
 
@@ -22,3 +29,5 @@ Here is the instruction:
    - To go back to the home page, click on the "PcariMovie" heading or the "Home" navigation link in the Navbar.
 
 ---
+
+**If you have any questions, feel free to WhatsApp me (0136328253).**

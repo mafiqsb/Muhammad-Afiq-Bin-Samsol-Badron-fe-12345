@@ -1,6 +1,5 @@
 'use client';
 
-import Features from '@/Components/Features';
 import React, { useState } from 'react';
 
 import {
