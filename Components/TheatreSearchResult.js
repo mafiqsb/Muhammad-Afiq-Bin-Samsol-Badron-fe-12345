@@ -21,6 +21,7 @@ import { useContext, useEffect } from 'react';
 import { IoMdTime } from 'react-icons/io';
 import { FaEye } from 'react-icons/fa';
 import { Store } from '@/app/Store';
+import Link from 'next/link';
 
 export default function TheaterSearchResult() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -31,7 +32,7 @@ export default function TheaterSearchResult() {
     const fetchMovieList = async () => {
       try {
         const response = await fetch(
-          'https://7077799c-155f-41b6-9c82-bc2ca4211a80.mock.pstmn.io/specific_movie_theater?theater_name=ABC%20movies&d_date=2020-04-04'
+          'https://6489c418-3ec0-4946-9354-a0d615341201.mock.pstmn.io/specific_movie_theater?theater_name=ABC movies&d_date=2020-04-04'
         );
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -82,97 +83,103 @@ export default function TheaterSearchResult() {
             {Array.isArray(theaterInformation) &&
               theaterInformation.map((movie) => (
                 <GridItem key={movie.Movie_ID}>
-                  <Card
-                    bgGradient="linear(to-b, #333333, #000000)"
-                    bgImage={`linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${movie.Poster})`}
-                    width={{ base: '370px', lg: '480px' }}
-                    height={{ base: '400px', lg: '560px' }}
-                    m={{ base: '0', xl: '6px' }}
-                    fontSize="lg"
-                    mt={{ base: '6px', xl: '0' }}
-                    bgSize="cover"
-                    bgPos="center"
-                    position="relative"
-                    bgRepeat="no-repeat"
-                    _hover={{
-                      transition: 'transform 0.3s ease-in-out',
-                      transform: 'scale(1.05)',
-                      cursor: 'pointer',
-                    }}
+                  <Link
+                    href="/theatrepagemovie/[id]"
+                    as={`/theatrepagemovie/${movie.Movie_ID}`}
+                    passHref
                   >
-                    <Badge
-                      position="absolute"
-                      top="12px"
-                      left="12px"
-                      variant="solid"
-                      bgColor="#FED530"
-                      color="black"
-                      borderRadius="full"
-                      px="2"
-                      py="1"
+                    <Card
+                      bgGradient="linear(to-b, #333333, #000000)"
+                      bgImage={`linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${movie.Poster})`}
+                      width={{ base: '370px', lg: '480px' }}
+                      height={{ base: '400px', lg: '560px' }}
+                      m={{ base: '0', xl: '6px' }}
+                      fontSize="lg"
+                      mt={{ base: '6px', xl: '0' }}
+                      bgSize="cover"
+                      bgPos="center"
+                      position="relative"
+                      bgRepeat="no-repeat"
+                      _hover={{
+                        transition: 'transform 0.3s ease-in-out',
+                        transform: 'scale(1.05)',
+                        cursor: 'pointer',
+                      }}
                     >
-                      {movie.Genre}
-                    </Badge>
-
-                    <CardBody display="flex" flexDirection="column">
-                      <Stack>
-                        <Flex
-                          position="absolute"
-                          bottom="100px"
-                          left="12px"
-                          color="white"
-                        >
-                          <div>
-                            <Text
-                              fontSize="sm"
-                              display="flex"
-                              alignItems="center"
-                              mr="10px"
-                            >
-                              <IoMdTime
-                                style={{
-                                  marginRight: '5px',
-                                  fontSize: '1.8em',
-                                }}
-                              />
-                              <span>{movie.Duration}</span>
-                            </Text>
-                          </div>
-                          <div>
-                            <Text
-                              fontSize="sm"
-                              display="flex"
-                              alignItems="center"
-                            >
-                              <FaEye
-                                style={{
-                                  marginRight: '5px',
-                                  fontSize: '1.8em',
-                                }}
-                              />
-                              <span>{movie.Views} Views</span>
-                            </Text>
-                          </div>
-                        </Flex>
-                      </Stack>
-
-                      <CardHeader
+                      <Badge
                         position="absolute"
-                        bottom="40px"
-                        left="50%"
-                        pl="12px"
-                        mb="-15px"
-                        transform="translateX(-50%)"
-                        textAlign="left"
-                        color="white"
-                        width="100%"
+                        top="12px"
+                        left="12px"
+                        variant="solid"
+                        bgColor="#FED530"
+                        color="black"
+                        borderRadius="full"
+                        px="2"
+                        py="1"
                       >
-                        <Heading size={{ base: 'lg', xl: '2xl' }}>
-                          {movie.Title}
-                        </Heading>
-                      </CardHeader>
-                    </CardBody>
-                  </Card>
+                        {movie.Genre}
+                      </Badge>
+
+                      <CardBody display="flex" flexDirection="column">
+                        <Stack>
+                          <Flex
+                            position="absolute"
+                            bottom="100px"
+                            left="12px"
+                            color="white"
+                          >
+                            <div>
+                              <Text
+                                fontSize="sm"
+                                display="flex"
+                                alignItems="center"
+                                mr="10px"
+                              >
+                                <IoMdTime
+                                  style={{
+                                    marginRight: '5px',
+                                    fontSize: '1.8em',
+                                  }}
+                                />
+                                <span>{movie.Duration}</span>
+                              </Text>
+                            </div>
+                            <div>
+                              <Text
+                                fontSize="sm"
+                                display="flex"
+                                alignItems="center"
+                              >
+                                <FaEye
+                                  style={{
+                                    marginRight: '5px',
+                                    fontSize: '1.8em',
+                                  }}
+                                />
+                                <span>{movie.Views} Views</span>
+                              </Text>
+                            </div>
+                          </Flex>
+                        </Stack>
+
+                        <CardHeader
+                          position="absolute"
+                          bottom="40px"
+                          left="50%"
+                          pl="12px"
+                          mb="-15px"
+                          transform="translateX(-50%)"
+                          textAlign="left"
+                          color="white"
+                          width="100%"
+                        >
+                          <Heading size={{ base: 'lg', xl: '2xl' }}>
+                            {movie.Title}
+                          </Heading>
+                        </CardHeader>
+                      </CardBody>
+                    </Card>
+                  </Link>
                 </GridItem>
               ))}
           </Grid>

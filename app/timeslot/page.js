@@ -23,7 +23,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import TimeSlotSearchResult from '@/Components/TimeSlotSearchResult';
 
-export default function timeslot() {
+export default function Timeslot() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 

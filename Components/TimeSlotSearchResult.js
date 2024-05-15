@@ -13,7 +13,6 @@ import {
   Grid,
   Badge,
   GridItem,
-  Hide,
 } from '@chakra-ui/react';
 
 import { useContext, useEffect } from 'react';
@@ -21,8 +20,11 @@ import { useContext, useEffect } from 'react';
 import { IoMdTime } from 'react-icons/io';
 import { FaEye } from 'react-icons/fa';
 import { Store } from '@/app/Store';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function TimeSlotSearchResult() {
+  const router = useRouter();
   const { state, dispatch: ctxDispatch } = useContext(Store);
 
   const { timeslotInformation } = state;
@@ -31,7 +33,7 @@ export default function TimeSlotSearchResult() {
     const fetchMovieList = async () => {
       try {
         const response = await fetch(
-          'https://7077799c-155f-41b6-9c82-bc2ca4211a80.mock.pstmn.io/timeslot?theater_name=ABC%20movies&time_start=2020-04-04%2000%3A00%3A00&time_end=2020-04-05%2000%3A00%3A00'
+          'https://6489c418-3ec0-4946-9354-a0d615341201.mock.pstmn.io/timeslot?theater_name=ABC movies&time_start=2020-04-04 00:00:00&time_end=2020-04-05 00:00:00'
         );
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -46,6 +48,10 @@ export default function TimeSlotSearchResult() {
 
     fetchMovieList();
   }, []);
+
+  // const handleCardClick = (movieId) => {
+  //   router.push(`/movie/${movieId}`);
+  // };
 
   return (
     <Box bgGradient="linear(to-r,  #000000,  #333333)">
@@ -82,97 +88,104 @@ export default function TimeSlotSearchResult() {
             {Array.isArray(timeslotInformation) &&
               timeslotInformation.map((movie) => (
                 <GridItem key={movie.Movie_ID}>
-                  <Card
-                    bgGradient="linear(to-b, #333333, #000000)"
-                    bgImage={`linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${movie.Poster})`}
-                    width={{ base: '370px', lg: '480px' }}
-                    height={{ base: '400px', lg: '560px' }}
-                    m={{ base: '0', xl: '6px' }}
-                    fontSize="lg"
-                    mt={{ base: '6px', xl: '0' }}
-                    bgSize="cover"
-                    bgPos="center"
-                    position="relative"
-                    bgRepeat="no-repeat"
-                    _hover={{
-                      transition: 'transform 0.3s ease-in-out',
-                      transform: 'scale(1.05)',
-                      cursor: 'pointer',
-                    }}
+                  <Link
+                    href="/timeslotpagemovie/[id]"
+                    as={`/timeslotpagemovie/${movie.Movie_ID}`}
+                    passHref
                   >
-                    <Badge
-                      position="absolute"
-                      top="12px"
-                      left="12px"
-                      variant="solid"
-                      bgColor="#FED530"
-                      color="black"
-                      borderRadius="full"
-                      px="2"
-                      py="1"
+                    <Card
+                      bgGradient="linear(to-b, #333333, #000000)"
+                      bgImage={`linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${movie.Poster})`}
+                      width={{ base: '370px', lg: '480px' }}
+                      height={{ base: '400px', lg: '560px' }}
+                      m={{ base: '0', xl: '6px' }}
+                      fontSize="lg"
+                      mt={{ base: '6px', xl: '0' }}
+                      bgSize="cover"
+                      bgPos="center"
+                      position="relative"
+                      bgRepeat="no-repeat"
+                      _hover={{
+                        transition: 'transform 0.3s ease-in-out',
+                        transform: 'scale(1.05)',
+                        cursor: 'pointer',
+                      }}
+                      // onClick={() => handleCardClick(movie.Movie_ID)}
                     >
-                      {movie.Genre}
-                    </Badge>
-
-                    <CardBody display="flex" flexDirection="column">
-                      <Stack>
-                        <Flex
-                          position="absolute"
-                          bottom="100px"
-                          left="12px"
-                          color="white"
-                        >
-                          <div>
-                            <Text
-                              fontSize="sm"
-                              display="flex"
-                              alignItems="center"
-                              mr="10px"
-                            >
-                              <IoMdTime
-                                style={{
-                                  marginRight: '5px',
-                                  fontSize: '1.8em',
-                                }}
-                              />
-                              <span>{movie.Duration}</span>
-                            </Text>
-                          </div>
-                          <div>
-                            <Text
-                              fontSize="sm"
-                              display="flex"
-                              alignItems="center"
-                            >
-                              <FaEye
-                                style={{
-                                  marginRight: '5px',
-                                  fontSize: '1.8em',
-                                }}
-                              />
-                              <span>{movie.Views} Views</span>
-                            </Text>
-                          </div>
-                        </Flex>
-                      </Stack>
-
-                      <CardHeader
+                      <Badge
                         position="absolute"
-                        bottom="40px"
-                        left="50%"
-                        pl="12px"
-                        transform="translateX(-50%)"
-                        textAlign="left"
-                        color="white"
-                        width="100%"
-                        mb="-15px"
+                        top="12px"
+                        left="12px"
+                        variant="solid"
+                        bgColor="#FED530"
+                        color="black"
+                        borderRadius="full"
+                        px="2"
+                        py="1"
                       >
-                        <Heading size={{ base: 'lg', xl: '2xl' }}>
-                          {movie.Title}
-                        </Heading>
-                      </CardHeader>
-                    </CardBody>
-                  </Card>
+                        {movie.Genre}
+                      </Badge>
+
+                      <CardBody display="flex" flexDirection="column">
+                        <Stack>
+                          <Flex
+                            position="absolute"
+                            bottom="100px"
+                            left="12px"
+                            color="white"
+                          >
+                            <div>
+                              <Text
+                                fontSize="sm"
+                                display="flex"
+                                alignItems="center"
+                                mr="10px"
+                              >
+                                <IoMdTime
+                                  style={{
+                                    marginRight: '5px',
+                                    fontSize: '1.8em',
+                                  }}
+                                />
+                                <span>{movie.Duration}</span>
+                              </Text>
+                            </div>
+                            <div>
+                              <Text
+                                fontSize="sm"
+                                display="flex"
+                                alignItems="center"
+                              >
+                                <FaEye
+                                  style={{
+                                    marginRight: '5px',
+                                    fontSize: '1.8em',
+                                  }}
+                                />
+                                <span>{movie.Views} Views</span>
+                              </Text>
+                            </div>
+                          </Flex>
+                        </Stack>
+
+                        <CardHeader
+                          position="absolute"
+                          bottom="40px"
+                          left="50%"
+                          pl="12px"
+                          transform="translateX(-50%)"
+                          textAlign="left"
+                          color="white"
+                          width="100%"
+                          mb="-15px"
+                        >
+                          <Heading size={{ base: 'lg', xl: '2xl' }}>
+                            {movie.Title}
+                          </Heading>
+                        </CardHeader>
+                      </CardBody>
+                    </Card>
+                  </Link>
                 </GridItem>
               ))}
           </Grid>

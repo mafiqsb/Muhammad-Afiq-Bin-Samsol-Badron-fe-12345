@@ -23,7 +23,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import TheaterSearchResult from '@/Components/TheatreSearchResult';
 
-export default function theatre() {
+export default function Theatre() {
   const [startDate, setStartDate] = useState(new Date());
 
   return (

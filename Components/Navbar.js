@@ -26,7 +26,6 @@ import TheaterPage from '../app/theatre/page';
 import TimeSlot from '@/app/timeslot/page';
 
 import { usePathname, useRouter } from 'next/navigation';
-import Hero from './Hero';
 
 const Links = [
   'Home',
