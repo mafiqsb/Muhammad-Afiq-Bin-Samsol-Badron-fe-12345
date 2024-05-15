@@ -21,7 +21,7 @@ export default function Hero() {
       <Box bgGradient="linear(to-r, #333333, #000000)">
         <Container
           maxW={{ base: '90vw', sm: '80vw', md: '70vw', lg: '100%', xl: '90%' }}
-          height={{ base: 'auto', md: '500px', lg: '90vh', xl: '90vh' }}
+          height={{ base: 'auto', md: '500px', xl: '90vh' }}
         >
           <Center h="100%">
             <Flex

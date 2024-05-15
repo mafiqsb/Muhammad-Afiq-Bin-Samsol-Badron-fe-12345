@@ -24,26 +24,38 @@ const Footer = () => {
   const sitemapLinks = ['About', 'Career', 'Press'];
   const mediaGroup = ['Nice Studio', 'Nice News', 'Nice TV'];
   return (
-    <Grid bg="black" height="560px" templateColumns="repeat(6, 1fr)">
+    <Grid
+      bg="black"
+      templateColumns={{
+        base: '1fr',
+        // lg: 'repeat(6, 1fr)',
+        xl: 'repeat(10, 1fr)',
+      }}
+    >
       <GridItem
         bg="rgba(61, 61, 61, 1)"
         color="white"
         p={8}
-        colSpan={{ base: 6, xl: 2 }}
-        height="560px"
+        colSpan={{ base: 'auto', lg: 2, xl: 4 }}
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        alignItems="center"
+        alignItems={{ base: 'center', xl: 'flex-start' }}
       >
         <Box
-          width="349px"
+          width={{ base: '300px', lg: '400px' }}
           height="368px"
           display="flex"
           flexDirection="column"
           justifyContent="center"
+          ml={{ base: 0, lg: 0, xl: 44 }}
         >
-          <Heading size="md" mb={10} fontSize="64px" textAlign="left">
+          <Heading
+            size="md"
+            mb={10}
+            fontSize={{ base: '30px', xl: '64px' }}
+            textAlign="left"
+          >
             PcariMovie
           </Heading>
           <Text mb={10} textAlign="left" fontSize="16px">
@@ -66,7 +78,7 @@ const Footer = () => {
                   _hover={{ borderColor: 'transparent' }}
                 />
                 <InputRightElement
-                  width="12rem"
+                  width={{ base: '6rem', lg: '18rem' }}
                   mt="0.5rem"
                   display="flex"
                   alignItems="center"
@@ -83,21 +95,22 @@ const Footer = () => {
       </GridItem>
 
       <GridItem
-        display="flex"
-        flexDirection="column"
         bg="rgba(46, 46, 46, 1)"
         color="white"
         p={8}
-        height="560px"
-        width="full"
-        justifyContent={{ base: 'center', xl: 'left' }}
-        alignItems="left"
-        colSpan={{ base: 6, xl: 4 }}
-        pl={{ xl: 44 }}
+        colSpan={{
+          base: 'auto',
+          // lg: 4,
+          xl: 6,
+        }}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems={{ base: 'center', xl: 'flex-start' }}
       >
-        <Box mt={28}>
+        <Box pl={{ xl: 6 }}>
           <Box
-            w={{ base: 'w-full', lg: '600px' }}
+            w={{ base: 'w-full', xl: '600px' }}
             display="flex"
             flexDirection="row"
             justifyContent="space-between"
@@ -141,20 +154,20 @@ const Footer = () => {
             mt={20}
           >
             <Flex alignItems="flex-start">
-              <Flex align="center" mr={{ base: 2, md: 12 }}>
+              <Flex align="center" mr={{ base: 2, md: 4 }}>
                 <TbBrandGoogleMaps />
 
                 <Text ml={2} fontSize={{ base: 'x-small', md: 'medium' }}>
                   8819 Ohio St. South Gate, California 90280
                 </Text>
               </Flex>
-              <Flex align="center" mr={{ base: 2, md: 12 }}>
+              <Flex align="center" mr={{ base: 2, md: 4 }}>
                 <MdOutlineMail />
                 <Text ml={2} fontSize={{ base: 'x-small', md: 'medium' }}>
                   ourstudio@hello.com
                 </Text>
               </Flex>
-              <Flex align="center" mr={{ base: 2, md: 12 }}>
+              <Flex align="center" mr={{ base: 2, md: 4 }}>
                 <FaPhoneAlt />
                 <Text ml={2} fontSize={{ base: 'x-small', md: 'medium' }}>
                   +271 386-647-3637
