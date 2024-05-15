@@ -10,22 +10,27 @@ I have also done for all the requirements needed :-
 
 Extra :-
 
+1. Make my own mock Servers at Postman
 1. Make responsive for every size of the screen,
-2. Make navigation to another page.
+1. Make navigation to another page.
 
 Here is the instruction:
 
 ---
 
+1. **Run the npm build Command**
+
+   - npm run build
+
 1. **Locate the Magnifying Button:**
 
    - At the top right corner of the page, find and click on the magnifying glass button.
 
-2. **Select Theatre and Timeslot:**
+1. **Select Theatre and Timeslot:**
 
    - A modal will pop up displaying choices for Theatre and Timeslot. Click on your preferred option.
 
-3. **Return to Home:**
+1. **Return to Home:**
    - To go back to the home page, click on the "PcariMovie" heading or the "Home" navigation link in the Navbar.
 
 ---
