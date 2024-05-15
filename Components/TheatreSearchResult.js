@@ -54,7 +54,7 @@ export default function TheaterSearchResult() {
         <Stack spacing={4} mt="50px">
           <Container
             display="flex"
-            mb="20px"
+            mb={{ base: '20px', xl: '40px' }}
             p={0}
             maxW={{ base: '100%', md: '80%', xl: '1250px' }}
             width="100%"

@@ -40,7 +40,7 @@ const Footer = () => {
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        alignItems={{ base: 'center', xl: 'flex-start' }}
+        alignItems={{ base: 'center', xl: 'center' }}
       >
         <Box
           width={{ base: '300px', lg: '400px' }}
@@ -48,7 +48,7 @@ const Footer = () => {
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          ml={{ base: 0, lg: 0, xl: 44 }}
+          // ml={{ base: 0, lg: 0, xl: 48 }}
         >
           <Heading
             size="md"
@@ -106,7 +106,7 @@ const Footer = () => {
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        alignItems={{ base: 'center', xl: 'flex-start' }}
+        alignItems={{ base: 'center', xl: 'center' }}
       >
         <Box pl={{ xl: 6 }}>
           <Box

@@ -54,7 +54,8 @@ export default function Features() {
         <Stack spacing={4} mt="50px">
           <Container
             display="flex"
-            mb="20px"
+            alignItems="center"
+            mb={{ base: '20px', xl: '40px' }}
             p={0}
             maxW={{ base: '100%', md: '80%', xl: '1250px' }}
             width="100%"
@@ -66,7 +67,7 @@ export default function Features() {
               fontSize={{ base: '2xl', sm: '3xl' }}
               rounded="md"
               width="100%"
-              textAlign={{ base: 'center', lg: 'left' }}
+              textAlign={{ base: 'left', md: 'left' }}
             >
               New Releases
             </Heading>
@@ -103,7 +104,7 @@ export default function Features() {
                     bgPos="center 35%"
                     bgRepeat="no-repeat"
                     key={movie.Movie_ID}
-                    width={{ base: '380px', xl: '838px' }}
+                    width={{ base: '380px', xl: '813px' }}
                     height={{ base: '400px', xl: '560px' }}
                     fontSize="lg"
                     position="relative"
@@ -198,9 +199,9 @@ export default function Features() {
                     bgGradient="linear(to-b, #333333, #000000)"
                     bgImage={`linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${movie.Poster})`}
                     key={movie.Movie_ID}
-                    width={{ base: '380px', xl: '405px' }}
+                    width={{ base: '380px', xl: '395px' }}
                     height={{ base: '400px', xl: '560px' }}
-                    m={{ base: '0', xl: '6px' }}
+                    // m={{ base: '0', xl: '3px' }}
                     fontSize="lg"
                     mt={{ base: '6px', xl: '0' }}
                     bgSize="cover"
@@ -305,9 +306,9 @@ export default function Features() {
                       <Card
                         bgGradient="linear(to-b, #333333, #000000)"
                         bgImage={`linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${movie.Poster})`}
-                        width={{ base: '380px', xl: '400px' }}
+                        width={{ base: '380px', xl: '395px' }}
                         height={{ base: '400px', xl: '560px' }}
-                        m={{ base: '0', xl: '6px' }}
+                        m={{ base: '0', xl: '1px' }}
                         fontSize="lg"
                         mt={{ base: '6px', xl: '0' }}
                         bgSize="cover"
